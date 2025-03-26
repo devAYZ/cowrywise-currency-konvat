@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3AAD78622D94708E00509112 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78612D94708E00509112 /* Alamofire */; };
+		3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78642D9470B100509112 /* ObjectMapper */; };
+		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3AAD774F2D94687600509112 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */,
+				3AAD78622D94708E00509112 /* Alamofire in Frameworks */,
+				3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +134,9 @@
 			);
 			name = "cowrywise-currency-konvat";
 			packageProductDependencies = (
+				3AAD78612D94708E00509112 /* Alamofire */,
+				3AAD78642D9470B100509112 /* ObjectMapper */,
+				3AAD78672D94714100509112 /* IQKeyboardManagerSwift */,
 			);
 			productName = "cowrywise-currency-konvat";
 			productReference = 3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */;
@@ -208,6 +220,11 @@
 			);
 			mainGroup = 3AAD772F2D94687200509112;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
+				3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3AAD77392D94687200509112 /* Products */;
 			projectDirPath = "";
@@ -577,6 +594,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+		3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.16;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3AAD78612D94708E00509112 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3AAD78642D9470B100509112 /* ObjectMapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */;
+			productName = ObjectMapper;
+		};
+		3AAD78672D94714100509112 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3AAD77302D94687200509112 /* Project object */;
 }

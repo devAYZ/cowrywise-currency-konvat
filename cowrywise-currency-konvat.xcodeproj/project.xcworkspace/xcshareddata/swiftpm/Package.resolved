@@ -1,0 +1,33 @@
+{
+  "originHash" : "8083446cdd72b2455726b9ccc0a13883acb3dd2154f2b37b58d2da48876c5949",
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "branch" : "master",
+        "revision" : "2e7a741fc2af29bd833eddd45ee8c461987ff250"
+      }
+    },
+    {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "state" : {
+        "revision" : "c00b1ae9fa1ad8af4465bb6ca901f6943fc98eba",
+        "version" : "6.5.16"
+      }
+    },
+    {
+      "identity" : "objectmapper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tristanhimmelman/ObjectMapper",
+      "state" : {
+        "revision" : "6021c6035e83a306047348666f6400dc61445d3b",
+        "version" : "4.4.3"
+      }
+    }
+  ],
+  "version" : 3
+}
