@@ -10,6 +10,7 @@
 		3AAD78622D94708E00509112 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78612D94708E00509112 /* Alamofire */; };
 		3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78642D9470B100509112 /* ObjectMapper */; };
 		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
+		3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3ACAAB952D95595A005DB7F1 /* SideMenu */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 			files = (
 				3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */,
 				3AAD78622D94708E00509112 /* Alamofire in Frameworks */,
+				3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */,
 				3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +139,7 @@
 				3AAD78612D94708E00509112 /* Alamofire */,
 				3AAD78642D9470B100509112 /* ObjectMapper */,
 				3AAD78672D94714100509112 /* IQKeyboardManagerSwift */,
+				3ACAAB952D95595A005DB7F1 /* SideMenu */,
 			);
 			productName = "cowrywise-currency-konvat";
 			productReference = 3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */;
@@ -224,6 +227,7 @@
 				3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 				3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				3ACAAB942D95595A005DB7F1 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3AAD77392D94687200509112 /* Products */;
@@ -620,6 +624,14 @@
 				version = 6.5.16;
 			};
 		};
+		3ACAAB942D95595A005DB7F1 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -637,6 +649,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		3ACAAB952D95595A005DB7F1 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3ACAAB942D95595A005DB7F1 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

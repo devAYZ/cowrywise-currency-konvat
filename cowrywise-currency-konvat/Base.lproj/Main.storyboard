@@ -257,6 +257,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="exchangeRateButton" destination="bvt-zp-zc1" id="BPy-VW-p3h"/>
+                        <outlet property="sideMenuButtonView" destination="DFP-we-RUl" id="GPQ-5G-XVl"/>
+                        <outlet property="signUpButton" destination="23f-8v-Umn" id="GWp-Yg-yiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

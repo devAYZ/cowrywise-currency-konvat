@@ -35,4 +35,11 @@ extension UIView {
             return UIColor(cgColor: color)
         }
     }
+    
+    func addTapGesture(target: Any, action: Selector) {
+        let tap = UITapGestureRecognizer(target: target, action: action)
+        tap.numberOfTapsRequired = 1
+        addGestureRecognizer(tap)
+        isUserInteractionEnabled = true
+    }
 }
