@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpClicked), for: .touchUpInside)
     }
     
-    func setupSideMenu(rootVC: SideMenuViewController = SideMenuViewController()) {
+    func setupSideMenu(rootVC: SideMenuViewController = SideMenuViewController.instantiate()) {
         sideMenu = SideMenuNavigationController(rootViewController: rootVC)
         sideMenu?.leftSide = true
         SideMenuManager.default.leftMenuNavigationController = sideMenu
@@ -39,16 +39,6 @@ class ViewController: UIViewController {
     }
     
     @objc func signUpClicked() {
-        let alert = UIAlertController(title: "", message: "This feature is Coming soon to all users..", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-        
-    }
-}
-
-final class SideMenuViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .cyan
+        showAlert(featureName: "Sign up")
     }
 }

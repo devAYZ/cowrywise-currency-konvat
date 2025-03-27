@@ -43,3 +43,18 @@ extension UIView {
         isUserInteractionEnabled = true
     }
 }
+
+extension UIViewController {
+    static func instantiate(storyboard: String = "Main") -> Self {
+        let fullName = NSStringFromClass(self)
+        let className = fullName.components(separatedBy: ".")[1]
+        let storyboard = UIStoryboard(name: storyboard, bundle: Bundle.main)
+        return storyboard.instantiateViewController(withIdentifier: className) as! Self
+    }
+
+    func showAlert(featureName: String) {
+        let alert = UIAlertController(title: "", message: "\(featureName) coming soon to all users..", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}
