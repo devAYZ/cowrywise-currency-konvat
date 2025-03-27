@@ -11,6 +11,7 @@
 		3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78642D9470B100509112 /* ObjectMapper */; };
 		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
 		3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3ACAAB952D95595A005DB7F1 /* SideMenu */; };
+		3ACAAB9B2D9564C1005DB7F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3ACAAB9A2D9564C1005DB7F1 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cowrywise-currency-konvat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAD774E2D94687600509112 /* cowrywise-currency-konvatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cowrywise-currency-konvatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAD77582D94687600509112 /* cowrywise-currency-konvatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cowrywise-currency-konvatUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ACAAB9A2D9564C1005DB7F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -99,6 +101,7 @@
 		3AAD772F2D94687200509112 = {
 			isa = PBXGroup;
 			children = (
+				3ACAAB9A2D9564C1005DB7F1 /* README.md */,
 				3AAD773A2D94687200509112 /* cowrywise-currency-konvat */,
 				3AAD77512D94687600509112 /* cowrywise-currency-konvatTests */,
 				3AAD775B2D94687600509112 /* cowrywise-currency-konvatUITests */,
@@ -246,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACAAB9B2D9564C1005DB7F1 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
