@@ -18,38 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konvat" translatesAutoresizingMaskIntoConstraints="NO" id="PR8-Ri-alQ">
-                                <rect key="frame" x="121.66666666666669" y="351" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="aT4-Sa-oD5"/>
-                                    <constraint firstAttribute="width" constant="150" id="tys-8C-NKl"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="Hl0-RM-OSh">
-                                <rect key="frame" x="86.333333333333329" y="379.66666666666669" width="220.33333333333337" height="92.666666666666686"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uMM-vQ-p6j">
+                                <rect key="frame" x="30" y="376.66666666666669" width="333" height="99"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-NO-HSG">
-                                        <rect key="frame" x="0.0" y="0.0" width="220.33333333333334" height="57"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="49"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konvat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-nW-09f">
-                                        <rect key="frame" x="53.333333333333329" y="53" width="113.99999999999999" height="39.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="34"/>
-                                        <color key="textColor" red="0.12254591300559441" green="0.56710544361328674" blue="0.27160483507272731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konvat" translatesAutoresizingMaskIntoConstraints="NO" id="PR8-Ri-alQ">
+                                        <rect key="frame" x="0.0" y="9.3333333333333144" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="aT4-Sa-oD5"/>
+                                            <constraint firstAttribute="width" constant="80" id="tys-8C-NKl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-15" translatesAutoresizingMaskIntoConstraints="NO" id="Hl0-RM-OSh">
+                                        <rect key="frame" x="80" y="0.0" width="253" height="99"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-NO-HSG">
+                                                <rect key="frame" x="16.333333333333329" y="0.0" width="220.33333333333337" height="57"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="49"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konvat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-nW-09f">
+                                                <rect key="frame" x="69.666666666666657" y="42" width="114" height="57"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="34"/>
+                                                <color key="textColor" red="0.12254591300559441" green="0.56710544361328674" blue="0.27160483507272731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PR8-Ri-alQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3xz-Wd-0LW"/>
-                            <constraint firstItem="Hl0-RM-OSh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="C53-lc-bf8"/>
-                            <constraint firstItem="PR8-Ri-alQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dmd-eJ-Bl0"/>
-                            <constraint firstItem="Hl0-RM-OSh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iNM-ue-WV1"/>
+                            <constraint firstItem="uMM-vQ-p6j" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8Ql-hV-nNV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uMM-vQ-p6j" secondAttribute="trailing" constant="30" id="Y4c-2s-P0W"/>
+                            <constraint firstItem="uMM-vQ-p6j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="rAc-gi-PLv"/>
                         </constraints>
                     </view>
                 </viewController>

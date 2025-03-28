@@ -9,6 +9,7 @@ import UIKit
 
 final class SideMenuViewController: UIViewController {
     
+    // MARK: Views Outlet
     @IBOutlet var aboutUsButton: UIButton!
 
     override func viewDidLoad() {
