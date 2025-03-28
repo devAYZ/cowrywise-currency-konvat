@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3AAD78622D94708E00509112 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78612D94708E00509112 /* Alamofire */; };
-		3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78642D9470B100509112 /* ObjectMapper */; };
 		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
 		3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3ACAAB952D95595A005DB7F1 /* SideMenu */; };
 		3ACAAB9B2D9564C1005DB7F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3ACAAB9A2D9564C1005DB7F1 /* README.md */; };
@@ -74,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AAD78652D9470B100509112 /* ObjectMapper in Frameworks */,
 				3AAD78622D94708E00509112 /* Alamofire in Frameworks */,
 				3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */,
 				3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */,
@@ -140,7 +138,6 @@
 			name = "cowrywise-currency-konvat";
 			packageProductDependencies = (
 				3AAD78612D94708E00509112 /* Alamofire */,
-				3AAD78642D9470B100509112 /* ObjectMapper */,
 				3AAD78672D94714100509112 /* IQKeyboardManagerSwift */,
 				3ACAAB952D95595A005DB7F1 /* SideMenu */,
 			);
@@ -228,7 +225,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 				3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				3ACAAB942D95595A005DB7F1 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
@@ -612,14 +608,6 @@
 				kind = branch;
 			};
 		};
-		3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.3;
-			};
-		};
 		3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -643,11 +631,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		3AAD78642D9470B100509112 /* ObjectMapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3AAD78632D9470B100509112 /* XCRemoteSwiftPackageReference "ObjectMapper" */;
-			productName = ObjectMapper;
 		};
 		3AAD78672D94714100509112 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

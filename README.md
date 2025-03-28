@@ -12,7 +12,6 @@
 
 ## Dependencies
 - Alamofire: This handle network call 
-- ObjectMapper: 
 - IQKeyboardManagerSwift
 - SideMenu: A library that present nicely a Controller as a Side Menu
 

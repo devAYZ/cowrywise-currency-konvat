@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet var fromCurrencyView: UIView!
     @IBOutlet var toCurrencyView: UIView!
     @IBOutlet var convertCurrencyButton: UIButton!
+    @IBOutlet var getExchangeRateAlertButton: UIButton!
     
     private var exchangeRateButtonTitle = "Mid-market exchange rate at {t}  "
     public var sideMenu: SideMenuNavigationController?
@@ -38,6 +39,7 @@ class CalculatorViewController: UIViewController {
         sideMenuButton.addTarget(self, action: #selector(sideMenuClicked), for: .touchUpInside)
         fromCurrencyView.addTapGesture(target: self, action:  #selector(fromCurrencyViewClicked))
         toCurrencyView.addTapGesture(target: self, action:  #selector(toCurrencyViewClicked))
+        getExchangeRateAlertButton.addTarget(self, action: #selector(getExchangeRateAlertClicked), for: .touchUpInside)
     }
     
     @objc func sideMenuClicked() {
@@ -45,7 +47,11 @@ class CalculatorViewController: UIViewController {
     }
     
     @objc func signUpClicked() {
-        showAlert(featureName: "Sign up")
+        showAlertComingFeature(featureName: "Sign up")
+    }
+    
+    @objc func getExchangeRateAlertClicked() {
+        showAlertComingFeature(featureName: "Exchange Rate Alert")
     }
     
     @objc func fromCurrencyViewClicked() {

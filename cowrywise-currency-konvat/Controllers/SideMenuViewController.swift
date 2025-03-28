@@ -20,7 +20,7 @@ final class SideMenuViewController: UIViewController {
     }
     
     @objc func aboutUsClicked() {
-        showAlert(featureName: "About Us")
+        showAlertComingFeature(featureName: "About Us")
     }
 
 }

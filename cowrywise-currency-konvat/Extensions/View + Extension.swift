@@ -52,8 +52,14 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: className) as! Self
     }
 
-    func showAlert(featureName: String) {
+    func showAlertComingFeature(featureName: String) {
         let alert = UIAlertController(title: "", message: "\(featureName) coming soon to all users..", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    func showAlert(message: String?) {
+        let alert = UIAlertController(title: "", message: message ?? "Unknown error", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }

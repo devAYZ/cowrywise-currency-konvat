@@ -415,6 +415,7 @@
                         <outlet property="convertCurrencyButton" destination="dAX-ze-2nE" id="JgU-ZB-P1p"/>
                         <outlet property="exchangeRateButton" destination="bvt-zp-zc1" id="BPy-VW-p3h"/>
                         <outlet property="fromCurrencyView" destination="JPV-Fd-arq" id="Kop-Mo-9kC"/>
+                        <outlet property="getExchangeRateAlertButton" destination="RDd-Tb-h2O" id="ceP-U4-Ev7"/>
                         <outlet property="sideMenuButton" destination="efg-Zn-sw7" id="cgf-rV-6ze"/>
                         <outlet property="signUpButton" destination="23f-8v-Umn" id="GWp-Yg-yiG"/>
                         <outlet property="toCurrencyView" destination="sk1-MJ-86X" id="1fL-ul-K24"/>
@@ -433,13 +434,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRn-y7-mXs">
-                                <rect key="frame" x="154" y="79" width="85.333333333333314" height="29"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <rect key="frame" x="155.66666666666666" y="84" width="81.666666666666657" height="27.666666666666671"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="23"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3j-aQ-BKa">
-                                <rect key="frame" x="0.0" y="118" width="393" height="690"/>
+                                <rect key="frame" x="0.0" y="121.66666666666669" width="393" height="686.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -449,7 +450,7 @@
                             <constraint firstItem="KRn-y7-mXs" firstAttribute="centerX" secondItem="DTv-DO-Ag8" secondAttribute="centerX" id="IEd-iG-Bj5"/>
                             <constraint firstItem="n7k-xS-9wr" firstAttribute="bottom" secondItem="m3j-aQ-BKa" secondAttribute="bottom" constant="10" id="SkB-aY-RVb"/>
                             <constraint firstItem="m3j-aQ-BKa" firstAttribute="top" secondItem="KRn-y7-mXs" secondAttribute="bottom" constant="10" id="WgW-4m-odT"/>
-                            <constraint firstItem="KRn-y7-mXs" firstAttribute="top" secondItem="n7k-xS-9wr" secondAttribute="top" constant="20" id="d5i-JW-6fz"/>
+                            <constraint firstItem="KRn-y7-mXs" firstAttribute="top" secondItem="n7k-xS-9wr" secondAttribute="top" constant="25" id="d5i-JW-6fz"/>
                             <constraint firstItem="m3j-aQ-BKa" firstAttribute="leading" secondItem="n7k-xS-9wr" secondAttribute="leading" id="eRG-oY-06w"/>
                             <constraint firstItem="n7k-xS-9wr" firstAttribute="trailing" secondItem="m3j-aQ-BKa" secondAttribute="trailing" id="f4K-il-55t"/>
                         </constraints>
