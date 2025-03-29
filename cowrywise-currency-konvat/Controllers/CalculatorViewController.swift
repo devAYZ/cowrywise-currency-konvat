@@ -67,6 +67,13 @@ class CalculatorViewController: UIViewController {
     }
     
     private func handlePresentSelectCurrency(_ vc: SelectCurrencyViewController) {
+        vc.delegate = self
         present(vc, animated: true)
+    }
+}
+
+extension CalculatorViewController: SelectCurrencyDelegate {
+    func didSelectCurrency(code: String, name: String) {
+        print(code, name)
     }
 }

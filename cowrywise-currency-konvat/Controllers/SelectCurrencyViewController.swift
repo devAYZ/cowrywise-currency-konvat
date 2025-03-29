@@ -12,14 +12,26 @@ enum SelectCurrencyFlow {
     case to
 }
 
+protocol SelectCurrencyDelegate {
+    func didSelectCurrency(code: String, name: String)
+}
+
 class SelectCurrencyViewController: UIViewController {
 
     // MARK: Views Outlet
-    @IBOutlet var topLabel: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var fromLabel: UILabel!
+    @IBOutlet var toLabel: UILabel!
     
     // MARK: Properties
     var currencyFlow: SelectCurrencyFlow?
+    var filteredSymbols: [String: String]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var delegate: SelectCurrencyDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +40,26 @@ class SelectCurrencyViewController: UIViewController {
         
         switch currencyFlow {
         case .from:
-            topLabel.text = "Convert From:"
+            toLabel.textColor = .systemGray4
         case .to:
-            topLabel.text = "Convert To:"
+            fromLabel.textColor = .systemGray4
         default:
             break
         }
         setupTable()
-        getCurrencyList()
+        
+        filteredSymbols = DataManager.shared.symbolsList?.symbolsAndValueDictionary
+        if filteredSymbols == nil {
+            //getCurrencyList()
+        }
     }
     
     private func setupTable() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        searchBar.delegate = self
     }
     
     func getCurrencyList() {
@@ -52,7 +70,8 @@ class SelectCurrencyViewController: UIViewController {
                     self.showAlert(message: data.error?.info)
                     return
                 }
-                print(data.symbols?.CAD, "devAYZ")
+                DataManager.shared.symbolsList = data.symbols
+                self.filteredSymbols = DataManager.shared.symbolsList?.symbolsAndValueDictionary
             case .failure(let error):
                 self.showAlert(message: error.localizedDescription)
             }
@@ -73,20 +92,54 @@ class SelectCurrencyViewController: UIViewController {
 
 extension SelectCurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        filteredSymbols?.count ?? .zero
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
-        cell.textLabel?.text = "USD"
+        
+        guard let filteredSymbols = filteredSymbols else {
+            cell.textLabel?.text = "N/A"
+            return cell
+        }
+        cell.textLabel?.text = Array(filteredSymbols.values)[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let filteredSymbols = filteredSymbols else { return }
+        let currencyCode = Array(filteredSymbols.keys)[indexPath.row]
+        let curencyName = Array(filteredSymbols.values)[indexPath.row]
+        dismiss(animated: true) {
+            self.delegate?.didSelectCurrency(code: currencyCode, name: curencyName)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         65
+    }
+}
+
+extension SelectCurrencyViewController: UISearchBarDelegate {
+    func searchSymbols(for searchText: String) {
+        let symbolList = DataManager.shared.symbolsList?.symbolsAndValueDictionary
+        if searchText.isEmpty {
+            filteredSymbols = symbolList
+        } else {
+            filteredSymbols = symbolList?.filter { key, value in
+                key.localizedCaseInsensitiveContains(searchText) ||
+                value.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchSymbols(for: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchSymbols(for: "")
     }
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-
 class DataManager {
+    static let shared = DataManager()
     
     var symbolsList: SymbolsList?
 }

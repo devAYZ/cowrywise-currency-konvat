@@ -55,7 +55,7 @@ final class NetworkCallService: NetworkCallProtocol {
         let requestUrl = Endpoint.https.rawValue + PlistManager[.baseUrl] + requestModel.endpoint
         let responseType = requestModel.responseType
         
-        var requestHeaders: HTTPHeaders = [
+        let requestHeaders: HTTPHeaders = [
             "x-channel": "iOS",
             "x-lang": "EN"
         ]
