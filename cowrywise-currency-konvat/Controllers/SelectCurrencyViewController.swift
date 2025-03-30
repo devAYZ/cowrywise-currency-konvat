@@ -13,7 +13,7 @@ enum SelectCurrencyFlow {
 }
 
 protocol SelectCurrencyDelegate {
-    func didSelectCurrency(code: String, name: String)
+    func didSelectCurrency(_ currency: SingleCurrency)
 }
 
 class SelectCurrencyViewController: UIViewController {
@@ -23,6 +23,7 @@ class SelectCurrencyViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var fromLabel: UILabel!
     @IBOutlet var toLabel: UILabel!
+    @IBOutlet var cancelButton: UIButton!
     
     // MARK: Properties
     var currencyFlow: SelectCurrencyFlow?
@@ -40,9 +41,9 @@ class SelectCurrencyViewController: UIViewController {
         
         switch currencyFlow {
         case .from:
-            toLabel.textColor = .systemGray4
+            toLabel.textColor = .systemGray5
         case .to:
-            fromLabel.textColor = .systemGray4
+            fromLabel.textColor = .systemGray5
         default:
             break
         }
@@ -52,6 +53,7 @@ class SelectCurrencyViewController: UIViewController {
         if filteredSymbols == nil {
             //getCurrencyList()
         }
+        cancelButton.addTarget(self, action: #selector(cancelClicked), for: .touchUpInside)
     }
     
     private func setupTable() {
@@ -60,6 +62,10 @@ class SelectCurrencyViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         searchBar.delegate = self
+    }
+    
+    @objc func cancelClicked() {
+        dismiss(animated: true)
     }
     
     func getCurrencyList() {
@@ -112,7 +118,7 @@ extension SelectCurrencyViewController: UITableViewDelegate, UITableViewDataSour
         let currencyCode = Array(filteredSymbols.keys)[indexPath.row]
         let curencyName = Array(filteredSymbols.values)[indexPath.row]
         dismiss(animated: true) {
-            self.delegate?.didSelectCurrency(code: currencyCode, name: curencyName)
+            self.delegate?.didSelectCurrency(.init(code: currencyCode, name: curencyName))
         }
     }
     

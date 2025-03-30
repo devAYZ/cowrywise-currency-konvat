@@ -30,3 +30,8 @@ struct SymbolsList: Decodable {
         return dictionary
     }
 }
+
+struct SingleCurrency {
+    var code: String
+    var name: String
+}

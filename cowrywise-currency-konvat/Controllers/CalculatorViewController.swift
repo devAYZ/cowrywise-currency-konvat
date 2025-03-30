@@ -11,22 +11,32 @@ import SideMenu
 class CalculatorViewController: UIViewController {
     
     // MARK: Views Outlet
-    @IBOutlet var exchangeRateButton: UIButton!
+    @IBOutlet var midMarketExRateInfoButton: UIButton!
     @IBOutlet var sideMenuButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
+    @IBOutlet var fromCurrencyTextField: UITextField!
+    @IBOutlet var toCurrencyTextField: UITextField!
     @IBOutlet var fromCurrencyView: UIView!
     @IBOutlet var toCurrencyView: UIView!
+    @IBOutlet var fromCurrencySymbolLabels: [UILabel]!
+    @IBOutlet var toCurrencySymbolLabels: [UILabel]!
+    @IBOutlet var fromCurrencySymbolImageView: UIImageView!
+    @IBOutlet var toCurrencySymbolImageView: UIImageView!
     @IBOutlet var convertCurrencyButton: UIButton!
-    @IBOutlet var getExchangeRateAlertButton: UIButton!
+    @IBOutlet var getEmailAlertForRatesButton: UIButton!
     
-    private var exchangeRateButtonTitle = "Mid-market exchange rate at {t}  "
+    // MARK: Properties
     public var sideMenu: SideMenuNavigationController?
+    var currencyFlow: SelectCurrencyFlow?
+    private var convertCurrencyFrom: SingleCurrency?
+    private var convertCurrencyTo: SingleCurrency?
+    private var exchangeRateButtonTitle = "Mid-market exchange rate at {t}  "
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        exchangeRateButton.setTitle(exchangeRateButtonTitle, for: .normal)
+        midMarketExRateInfoButton.setTitle(exchangeRateButtonTitle, for: .normal)
         
         setupSideMenu()
         signUpButton.addTarget(self, action: #selector(signUpClicked), for: .touchUpInside)
@@ -39,7 +49,9 @@ class CalculatorViewController: UIViewController {
         sideMenuButton.addTarget(self, action: #selector(sideMenuClicked), for: .touchUpInside)
         fromCurrencyView.addTapGesture(target: self, action:  #selector(fromCurrencyViewClicked))
         toCurrencyView.addTapGesture(target: self, action:  #selector(toCurrencyViewClicked))
-        getExchangeRateAlertButton.addTarget(self, action: #selector(getExchangeRateAlertClicked), for: .touchUpInside)
+        midMarketExRateInfoButton.addTarget(self, action: #selector(midMarketExRateInfoButtonClicked), for: .touchUpInside)
+        getEmailAlertForRatesButton.addTarget(self, action: #selector(getEmailAlertForRatesClicked), for: .touchUpInside)
+        convertCurrencyButton.addTarget(self, action: #selector(handleConvertCurrency), for: .touchUpInside)
     }
     
     @objc func sideMenuClicked() {
@@ -50,30 +62,56 @@ class CalculatorViewController: UIViewController {
         showAlertComingFeature(featureName: "Sign up")
     }
     
-    @objc func getExchangeRateAlertClicked() {
-        showAlertComingFeature(featureName: "Exchange Rate Alert")
+    @objc func midMarketExRateInfoButtonClicked() {
+        showAlertComingFeature(featureName: "Mid Market Info")
+    }
+    
+    @objc func getEmailAlertForRatesClicked() {
+        showAlertComingFeature(featureName: "Exchange Rate Email Alert")
     }
     
     @objc func fromCurrencyViewClicked() {
-        let vc = SelectCurrencyViewController.instantiate()
-        vc.currencyFlow = .from
-        handlePresentSelectCurrency(vc)
+        handlePresentSelectCurrency(.from)
     }
     
     @objc func toCurrencyViewClicked() {
-        let vc = SelectCurrencyViewController.instantiate()
-        vc.currencyFlow = .to
-        handlePresentSelectCurrency(vc)
+        handlePresentSelectCurrency(.to)
     }
     
-    private func handlePresentSelectCurrency(_ vc: SelectCurrencyViewController) {
+    private func handlePresentSelectCurrency(_ currencyFlow: SelectCurrencyFlow) {
+        self.currencyFlow = currencyFlow
+        let vc = SelectCurrencyViewController.instantiate()
+        vc.currencyFlow = currencyFlow
         vc.delegate = self
         present(vc, animated: true)
+    }
+    
+    @objc func handleConvertCurrency() {
+        guard convertCurrencyFrom != nil else {
+            showAlert(message: "Choose first currency for conversion")
+            return
+        }
+        
+        guard convertCurrencyTo != nil else {
+            showAlert(message: "Choose second currency for conversion")
+            return
+        }
+        
+        
     }
 }
 
 extension CalculatorViewController: SelectCurrencyDelegate {
-    func didSelectCurrency(code: String, name: String) {
-        print(code, name)
+    func didSelectCurrency(_ currency: SingleCurrency) {
+        switch currencyFlow {
+        case .from:
+            convertCurrencyFrom = currency
+            fromCurrencySymbolLabels.forEach { $0.text = currency.code }
+        case .to:
+            convertCurrencyTo = currency
+            toCurrencySymbolLabels.forEach { $0.text = currency.code }
+        default:
+            break
+        }
     }
 }
