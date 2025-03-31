@@ -17,6 +17,7 @@
 - Realm
 - SwiftyJSON
 - Kingfisher
+- DGCharts
 
 ## Architecture
 - MVVM (Design Pattern)

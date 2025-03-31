@@ -28,6 +28,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet var getEmailAlertForRatesButton: UIButton!
     @IBOutlet var loaderView: UIActivityIndicatorView!
     @IBOutlet var rateLabel: UILabel!
+    @IBOutlet var chartViewContainer: UIView!
     
     // MARK: Properties
     private var vmCalculatorView = CalculatorViewModel.shared
@@ -37,7 +38,7 @@ class CalculatorViewController: UIViewController {
     private var convertCurrencyFrom: SingleCurrency?
     private var convertCurrencyTo: SingleCurrency?
     private var amountToConvert: String?
-    private var exchangeRateButtonTitle = "Mid-market exchange rate at {t}  "
+    private var exchangeRateButtonTitle = "Mid-market exchange rate at {t} "
     private var rateLabelTitle = "Rate -> {r}"
     
     var filteredSymbols: [String: String]?
@@ -53,17 +54,20 @@ class CalculatorViewController: UIViewController {
             vmCalculatorView.getCurrencyList()
         }
         
-        midMarketExRateInfoButton.setTitle(exchangeRateButtonTitle, for: .normal)
-        
         setupSideMenu()
+        
         signUpButton.addTarget(self, action: #selector(signUpClicked), for: .touchUpInside)
         
         fromCurrencyView.addTapGesture(target: self, action:  #selector(fromCurrencyViewClicked))
         toCurrencyView.addTapGesture(target: self, action:  #selector(toCurrencyViewClicked))
-        midMarketExRateInfoButton.addTarget(self, action: #selector(midMarketExRateInfoButtonClicked), for: .touchUpInside)
         getEmailAlertForRatesButton.addTarget(self, action: #selector(getEmailAlertForRatesClicked), for: .touchUpInside)
         convertCurrencyButton.addTarget(self, action: #selector(handleConvertCurrency), for: .touchUpInside)
         fromCurrencyTextField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)
+        fromCurrencyTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        setupMidMarketExRateInfoButton()
+        
+        setupCurrencyView()
     }
     
     func setupSideMenu(rootVC: SideMenuViewController = SideMenuViewController.instantiate()) {
@@ -106,11 +110,59 @@ class CalculatorViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        guard var text = textField.text else { return }
+        let components = text.split(separator: ".")
+        
+        // Prevent more than one decimal point
+        if components.count > 2 {
+            text = String(components[0]) + "." + String(components[1])
+        }
+        
+        // Convert to Double and enforce two decimal places only if necessary
+        if let number = Double(text) {
+            if text.contains(".") {
+                let decimalParts = text.split(separator: ".")
+                if decimalParts.count == 2, decimalParts[1].count > 2 {
+                    text = String(format: "%.2f", number) // Limit to 2 decimal places
+                }
+            }
+        } else {
+            text = ""
+        }
+        
+        textField.text = text
+    }
+    
     @objc func textFieldEditingDidEnd(_ sender: UITextField) {
         guard let amountToConvert = sender.text, !amountToConvert.isEmpty else {
             return
         }
         self.amountToConvert = amountToConvert
+        print(amountToConvert)
+    }
+    
+    func setupMidMarketExRateInfoButton() {
+        midMarketExRateInfoButton.addTarget(self, action: #selector(midMarketExRateInfoButtonClicked), for: .touchUpInside)
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        let timeString = dateFormatter.string(from: .now)
+        midMarketExRateInfoButton.setTitle(exchangeRateButtonTitle.replacingOccurrences(of: "{t}", with: timeString), for: .normal)
+    }
+    
+    func setupCurrencyView() {
+        let chartView = CurrencyChartView()
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        chartViewContainer.addSubview(chartView)
+        NSLayoutConstraint.activate([
+            chartView.topAnchor.constraint(equalTo: chartViewContainer.topAnchor),
+            chartView.leadingAnchor.constraint(equalTo: chartViewContainer.leadingAnchor),
+            chartView.trailingAnchor.constraint(equalTo: chartViewContainer.trailingAnchor),
+            chartView.bottomAnchor.constraint(equalTo: chartViewContainer.bottomAnchor)
+        ])
     }
     
     @objc func handleConvertCurrency() {
@@ -174,8 +226,11 @@ extension CalculatorViewController: CalculatorViewModelProtocol {
     
     func handleSuccess(coversion: ConvertAmountResponse) {
         rateLabel.isHidden = false
-        rateLabel.text = rateLabelTitle
-            .replacingOccurrences(of: "{r}", with: "\(coversion.info?.rate ?? 000)")
-        toCurrencyTextField.text = "\(coversion.result ?? 000)"
+        
+        rateLabel.text = rateLabelTitle.replacingOccurrences(
+            of: "{r}",
+            with: String(format: "%.2f", coversion.info?.rate ?? 0)
+        )
+        toCurrencyTextField.text = String(format: "%.2f", coversion.result ?? 0)
     }
 }

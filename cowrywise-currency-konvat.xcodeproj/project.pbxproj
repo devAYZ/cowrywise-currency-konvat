@@ -10,6 +10,7 @@
 		3A46C92A2D99E17C006B282A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A46C9292D99E17C006B282A /* RealmSwift */; };
 		3A4EE7E92D9AE477003E5674 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3A4EE7E82D9AE477003E5674 /* SwiftyJSON */; };
 		3A4EE7EC2D9AFBE6003E5674 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3A4EE7EB2D9AFBE6003E5674 /* Kingfisher */; };
+		3A4EE7EF2D9B05BE003E5674 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3A4EE7EE2D9B05BE003E5674 /* DGCharts */; };
 		3AAD78622D94708E00509112 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78612D94708E00509112 /* Alamofire */; };
 		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
 		3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3ACAAB952D95595A005DB7F1 /* SideMenu */; };
@@ -81,6 +82,7 @@
 				3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */,
 				3A46C92A2D99E17C006B282A /* RealmSwift in Frameworks */,
 				3A4EE7E92D9AE477003E5674 /* SwiftyJSON in Frameworks */,
+				3A4EE7EF2D9B05BE003E5674 /* DGCharts in Frameworks */,
 				3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +151,7 @@
 				3A46C9292D99E17C006B282A /* RealmSwift */,
 				3A4EE7E82D9AE477003E5674 /* SwiftyJSON */,
 				3A4EE7EB2D9AFBE6003E5674 /* Kingfisher */,
+				3A4EE7EE2D9B05BE003E5674 /* DGCharts */,
 			);
 			productName = "cowrywise-currency-konvat";
 			productReference = 3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */;
@@ -239,6 +242,7 @@
 				3A46C9262D99E17C006B282A /* XCRemoteSwiftPackageReference "realm-swift" */,
 				3A4EE7E72D9AE477003E5674 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				3A4EE7EA2D9AFBE6003E5674 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3A4EE7ED2D9B05BE003E5674 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3AAD77392D94687200509112 /* Products */;
@@ -636,6 +640,14 @@
 				minimumVersion = 8.3.1;
 			};
 		};
+		3A4EE7ED2D9B05BE003E5674 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -677,6 +689,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A4EE7EA2D9AFBE6003E5674 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3A4EE7EE2D9B05BE003E5674 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A4EE7ED2D9B05BE003E5674 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 		3AAD78612D94708E00509112 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
