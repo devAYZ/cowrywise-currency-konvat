@@ -26,6 +26,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet var convertCurrencyButton: UIButton!
     @IBOutlet var getEmailAlertForRatesButton: UIButton!
     @IBOutlet var loaderView: UIActivityIndicatorView!
+    @IBOutlet var rateLabel: UILabel!
     
     // MARK: Properties
     private var vmCalculatorView = CalculatorViewModel.shared
@@ -34,7 +35,9 @@ class CalculatorViewController: UIViewController {
     var currencyFlow: SelectCurrencyFlow?
     private var convertCurrencyFrom: SingleCurrency?
     private var convertCurrencyTo: SingleCurrency?
+    private var amountToConvert: String?
     private var exchangeRateButtonTitle = "Mid-market exchange rate at {t}  "
+    private var rateLabelTitle = "Rate -> {r}"
     
     var filteredSymbols: [String: String]?
 
@@ -105,19 +108,27 @@ class CalculatorViewController: UIViewController {
         guard let amountToConvert = sender.text, !amountToConvert.isEmpty else {
             return
         }
-        print(amountToConvert, sender.tag)
+        self.amountToConvert = amountToConvert
     }
     
     @objc func handleConvertCurrency() {
-        guard convertCurrencyFrom != nil else {
+        
+        guard let amountToConvert = amountToConvert else {
+            showAlert(message: "Enter amount")
+            return
+        }
+        
+        guard let currencyFrom = convertCurrencyFrom else {
             showAlert(message: "Choose first currency for conversion")
             return
         }
         
-        guard convertCurrencyTo != nil else {
+        guard let currencyTo = convertCurrencyTo else {
             showAlert(message: "Choose second currency for conversion")
             return
         }
+        
+        vmCalculatorView.covertCurrency(from: currencyFrom.code, to: currencyTo.code, amount: amountToConvert)
     }
 }
 
@@ -138,6 +149,7 @@ extension CalculatorViewController: SelectCurrencyDelegate {
 
 extension CalculatorViewController: CalculatorViewModelProtocol {
     func handleError(message: String?) {
+        rateLabel.isHidden = true
         showAlert(message: message)
     }
     
@@ -152,5 +164,12 @@ extension CalculatorViewController: CalculatorViewModelProtocol {
         case false:
             loaderView.stopAnimating()
         }
+    }
+    
+    func handleSuccess(coversion: ConvertAmountResponse) {
+        rateLabel.isHidden = false
+        rateLabel.text = rateLabelTitle
+            .replacingOccurrences(of: "{r}", with: "\(coversion.info?.rate ?? 000)")
+        toCurrencyTextField.text = "\(coversion.result ?? 000)"
     }
 }

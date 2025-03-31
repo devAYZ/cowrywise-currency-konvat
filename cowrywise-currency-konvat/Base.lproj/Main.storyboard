@@ -125,6 +125,12 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BJ-Qf-GOY">
+                                                                <rect key="frame" x="0.0" y="56" width="353" height="0.0"/>
+                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                                                <color key="textColor" red="0.057583041959999998" green="0.55119099650000003" blue="0.34901960780000002" alpha="0.93263711739999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-Nv-EX8">
                                                                 <rect key="frame" x="0.0" y="62" width="353" height="50"/>
                                                                 <subviews>
@@ -428,6 +434,7 @@
                         <outlet property="getEmailAlertForRatesButton" destination="RDd-Tb-h2O" id="mzg-A1-K5X"/>
                         <outlet property="loaderView" destination="Cn3-Mj-I6Y" id="7PI-fu-ex9"/>
                         <outlet property="midMarketExRateInfoButton" destination="bvt-zp-zc1" id="IBz-Us-fxh"/>
+                        <outlet property="rateLabel" destination="9BJ-Qf-GOY" id="h8E-0y-QNq"/>
                         <outlet property="sideMenuButton" destination="efg-Zn-sw7" id="cgf-rV-6ze"/>
                         <outlet property="signUpButton" destination="23f-8v-Umn" id="GWp-Yg-yiG"/>
                         <outlet property="toCurrencySymbolImageView" destination="qCJ-B6-0tc" id="PKE-7W-R22"/>

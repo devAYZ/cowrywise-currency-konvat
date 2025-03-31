@@ -11,6 +11,7 @@ protocol CalculatorViewModelProtocol {
     func handleLoader(show: Bool)
     func handleError(message: String?)
     func handleSuccess(sysmbols: [String: String]?)
+    func handleSuccess(coversion: ConvertAmountResponse)
 }
 
 class CalculatorViewModel  {
@@ -48,6 +49,36 @@ class CalculatorViewModel  {
             requestMethod: .get,
             queryParameters: [
                 "access_key" : PlistManager[.apiKey]
+            ]
+        )
+    }
+    
+    func covertCurrency(from: String, to: String, amount: String) {
+        self.delegate?.handleLoader(show: true)
+        NetworkCallService.shared.makeNetworkCall(with:  covertCurrencyRequestModel(from: from, to: to, amount: amount)) { response in
+            self.delegate?.handleLoader(show: false)
+            switch response.result {
+            case .success(let data):
+                guard data.success ?? false else {
+                    self.delegate?.handleError(message: data.error?.info)
+                    return
+                }
+                self.delegate?.handleSuccess(coversion: data)
+                
+            case .failure(let error):
+                self.delegate?.handleError(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func covertCurrencyRequestModel(from: String, to: String, amount: String) -> NetworkCallModel<ConvertAmountResponse> {
+        return NetworkCallModel(
+            endpoint: Endpoint.convert.rawValue,
+            responseType: ConvertAmountResponse.self,
+            requestMethod: .get,
+            queryParameters: [
+                "access_key" : PlistManager[.apiKey],
+                "from": from, "to": to, "amount": amount
             ]
         )
     }

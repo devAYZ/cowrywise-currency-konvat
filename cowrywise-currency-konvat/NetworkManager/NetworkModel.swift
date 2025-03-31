@@ -11,4 +11,5 @@ public enum Endpoint: String {
     // Main
     case https = "https://"
     case symbolsList = "/symbols"
+    case convert = "/convert"
 }
