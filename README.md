@@ -14,6 +14,9 @@
 - Alamofire: This handle network call 
 - IQKeyboardManagerSwift
 - SideMenu: A library that present nicely a Controller as a Side Menu
+- Realm
+- SwiftyJSON
+- Kingfisher
 
 ## Architecture
 - MVVM (Design Pattern)

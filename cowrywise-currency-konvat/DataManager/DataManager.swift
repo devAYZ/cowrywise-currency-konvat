@@ -7,9 +7,9 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 class DataManager: Object {
-    static let shared = DataManager()
     
     override static func primaryKey() -> String? {
         return "symbolsListStringData"

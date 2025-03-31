@@ -185,8 +185,9 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ENP-GL-2ph">
                                                                         <rect key="frame" x="19.999999999999993" y="0.0" width="95.333333333333314" height="60"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konvat" translatesAutoresizingMaskIntoConstraints="NO" id="9al-ac-BMR">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9al-ac-BMR">
                                                                                 <rect key="frame" x="0.0" y="15" width="30" height="30"/>
+                                                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="30" id="TZJ-Dc-yra"/>
                                                                                     <constraint firstAttribute="width" constant="30" id="hSq-Bt-ykd"/>
@@ -263,8 +264,9 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9H3-bz-1DI">
                                                                         <rect key="frame" x="19.999999999999993" y="0.0" width="95.333333333333314" height="60"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konvat" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-B6-0tc">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-B6-0tc">
                                                                                 <rect key="frame" x="0.0" y="15" width="30" height="30"/>
+                                                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="30" id="B4r-ca-qR2"/>
                                                                                     <constraint firstAttribute="width" constant="30" id="Jc4-f3-jJt"/>
@@ -677,7 +679,6 @@
         <image name="convertArrow2" width="128" height="128"/>
         <image name="downArrow" width="512" height="512"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="konvat" width="427" height="425"/>
         <image name="menuIcon" width="512" height="512"/>
         <namedColor name="ViewBorderOutline">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

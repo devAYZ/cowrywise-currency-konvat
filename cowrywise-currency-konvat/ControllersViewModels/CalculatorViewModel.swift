@@ -32,9 +32,9 @@ class CalculatorViewModel  {
                     self.delegate?.handleError(message: data.error?.info)
                     return
                 }
-                self.delegate?.handleSuccess(sysmbols: data.symbols?.symbolsAndValueDictionary)
                 self.dataManager.symbolsListData = data.symbols
                 RealmManager.shared.saveObject(self.dataManager)
+                self.delegate?.handleSuccess(sysmbols: data.symbols?.symbolsAndValueDictionary)
                 
             case .failure(let error):
                 self.delegate?.handleError(message: error.localizedDescription)

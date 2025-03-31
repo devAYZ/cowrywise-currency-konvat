@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SideMenu
+import Kingfisher
 
 class CalculatorViewController: UIViewController {
     
@@ -46,8 +47,9 @@ class CalculatorViewController: UIViewController {
         // Do any additional setup after loading the view.
         vmCalculatorView.delegate = self
         
-        filteredSymbols = RealmManager.shared.retrieveObject(DataManager.self)?.symbolsListData?.symbolsAndValueDictionary
-        if filteredSymbols == nil {
+        if let cached = RealmManager.shared.retrieveObject(DataManager.self)?.symbolsListData {
+            filteredSymbols = cached.symbolsAndValueDictionary
+        } else {
             vmCalculatorView.getCurrencyList()
         }
         
@@ -134,11 +136,15 @@ class CalculatorViewController: UIViewController {
 
 extension CalculatorViewController: SelectCurrencyDelegate {
     func didSelectCurrency(_ currency: SingleCurrency) {
+        let currencyLogo = String(currency.code.prefix(2))
+        let checkCurrencyLogo  = URL(string: "https://flagsapi.com/\(currencyLogo)/flat/64.png")
         switch currencyFlow {
         case .from:
+            fromCurrencySymbolImageView.kf.setImage(with: checkCurrencyLogo)
             convertCurrencyFrom = currency
             fromCurrencySymbolLabels.forEach { $0.text = currency.code }
         case .to:
+            toCurrencySymbolImageView.kf.setImage(with: checkCurrencyLogo)
             convertCurrencyTo = currency
             toCurrencySymbolLabels.forEach { $0.text = currency.code }
         default:
