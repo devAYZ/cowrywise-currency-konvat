@@ -394,6 +394,11 @@
                                     <constraint firstAttribute="trailing" secondItem="z0a-sb-c8Y" secondAttribute="trailing" id="nwi-QY-iR4"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Cn3-Mj-I6Y">
+                                <rect key="frame" x="0.0" y="-8" width="393" height="868"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="color" red="0.0" green="0.233555507" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -403,11 +408,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Eef-qU-wfm" secondAttribute="trailing" constant="16" id="Zk0-7V-JTO"/>
                             <constraint firstAttribute="trailing" secondItem="io7-tj-Yae" secondAttribute="trailing" id="coH-Xm-wXY"/>
                             <constraint firstAttribute="bottom" secondItem="zgX-0G-89n" secondAttribute="bottom" id="gcY-VN-jBM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cn3-Mj-I6Y" secondAttribute="trailing" id="iz1-77-X4J"/>
+                            <constraint firstItem="Cn3-Mj-I6Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ktU-aO-Va2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zgX-0G-89n" secondAttribute="trailing" id="kuC-Uv-LUC"/>
                             <constraint firstAttribute="bottom" secondItem="io7-tj-Yae" secondAttribute="bottom" id="l9Y-kh-iGV"/>
                             <constraint firstItem="Eef-qU-wfm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="lVZ-bd-vOl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cn3-Mj-I6Y" secondAttribute="bottomMargin" id="vRe-SR-2j2"/>
                             <constraint firstItem="zgX-0G-89n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wiI-0P-Clg"/>
                             <constraint firstItem="io7-tj-Yae" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xWB-cN-JWG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Cn3-Mj-I6Y" secondAttribute="topMargin" id="z35-5N-eA1"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -417,6 +426,7 @@
                         <outlet property="fromCurrencyTextField" destination="8wy-1l-Xkz" id="ZAU-pp-sNt"/>
                         <outlet property="fromCurrencyView" destination="JPV-Fd-arq" id="Kop-Mo-9kC"/>
                         <outlet property="getEmailAlertForRatesButton" destination="RDd-Tb-h2O" id="mzg-A1-K5X"/>
+                        <outlet property="loaderView" destination="Cn3-Mj-I6Y" id="7PI-fu-ex9"/>
                         <outlet property="midMarketExRateInfoButton" destination="bvt-zp-zc1" id="IBz-Us-fxh"/>
                         <outlet property="sideMenuButton" destination="efg-Zn-sw7" id="cgf-rV-6ze"/>
                         <outlet property="signUpButton" destination="23f-8v-Umn" id="GWp-Yg-yiG"/>

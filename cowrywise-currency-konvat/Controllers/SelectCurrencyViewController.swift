@@ -27,15 +27,9 @@ class SelectCurrencyViewController: UIViewController {
     
     // MARK: Properties
     var currencyFlow: SelectCurrencyFlow?
-    var filteredSymbols: [String: String]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var filteredSymbols: [String: String]?
     
     var delegate: SelectCurrencyDelegate?
-    
-    let dataManager = DataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +45,6 @@ class SelectCurrencyViewController: UIViewController {
             break
         }
         setupTable()
-        
-        filteredSymbols = RealmManager.shared.retrieveObject(DataManager.self)?.symbolsListData?.symbolsAndValueDictionary
-        if filteredSymbols == nil {
-            getCurrencyList()
-        }
         cancelButton.addTarget(self, action: #selector(cancelClicked), for: .touchUpInside)
     }
     
@@ -69,35 +58,6 @@ class SelectCurrencyViewController: UIViewController {
     
     @objc func cancelClicked() {
         dismiss(animated: true)
-    }
-    
-    func getCurrencyList() {
-        NetworkCallService.shared.makeNetworkCall(with: getCurrencyRequestModel()) { response in
-            switch response.result {
-            case .success(let data):
-                guard data.success ?? false else {
-                    self.showAlert(message: data.error?.info)
-                    return
-                }
-                self.filteredSymbols = data.symbols?.symbolsAndValueDictionary
-                self.dataManager.symbolsListData = data.symbols
-                RealmManager.shared.saveObject(self.dataManager)
-                
-            case .failure(let error):
-                self.showAlert(message: error.localizedDescription)
-            }
-        }
-    }
-    
-    private func getCurrencyRequestModel() -> NetworkCallModel<SymbolsListResponse> {
-        return NetworkCallModel(
-            endpoint: Endpoint.symbolsList.rawValue,
-            responseType: SymbolsListResponse.self,
-            requestMethod: .get,
-            queryParameters: [
-                "access_key" : PlistManager[.apiKey]
-            ]
-        )
     }
 }
 
@@ -143,6 +103,7 @@ extension SelectCurrencyViewController: UISearchBarDelegate {
                 value.localizedCaseInsensitiveContains(searchText)
             }
         }
+        tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
