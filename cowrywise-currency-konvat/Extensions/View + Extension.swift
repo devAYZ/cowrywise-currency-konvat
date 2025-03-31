@@ -53,13 +53,15 @@ extension UIViewController {
     }
 
     func showAlertComingFeature(featureName: String) {
-        let alert = UIAlertController(title: "", message: "\(featureName) coming soon to all users..", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+        handleShowAlert("\(featureName) coming to all users soon..")
     }
     
     func showAlert(message: String?) {
-        let alert = UIAlertController(title: "", message: message ?? "Unknown error", preferredStyle: .alert)
+        handleShowAlert(message ?? "Unknown error")
+    }
+    
+    func handleShowAlert(_ message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }

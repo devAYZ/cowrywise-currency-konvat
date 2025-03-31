@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ErrorResponse: Decodable {
+struct ErrorResponse: Codable {
     var code: Int?
     var type: String?
     var info: String?

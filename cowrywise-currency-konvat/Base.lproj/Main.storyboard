@@ -145,13 +145,13 @@
                                                                             <constraint firstItem="pew-sz-gEF" firstAttribute="centerY" secondItem="EB0-hy-wzt" secondAttribute="centerY" id="fV1-u7-Orr"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQK-qo-Qp9">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQK-qo-Qp9">
                                                                         <rect key="frame" x="15" y="0.0" width="278" height="50"/>
                                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                 </subviews>
-                                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="0.70062712589999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="0.75071747448979587" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="EB0-hy-wzt" secondAttribute="trailing" constant="10" id="DIK-dj-aXs"/>
                                                                     <constraint firstAttribute="bottom" secondItem="EB0-hy-wzt" secondAttribute="bottom" id="HGu-Be-nS2"/>

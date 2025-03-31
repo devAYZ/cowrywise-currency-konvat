@@ -32,7 +32,10 @@ class SelectCurrencyViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
     var delegate: SelectCurrencyDelegate?
+    
+    let dataManager = DataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +52,9 @@ class SelectCurrencyViewController: UIViewController {
         }
         setupTable()
         
-        filteredSymbols = DataManager.shared.symbolsList?.symbolsAndValueDictionary
+        filteredSymbols = RealmManager.shared.retrieveObject(DataManager.self)?.symbolsListData?.symbolsAndValueDictionary
         if filteredSymbols == nil {
-            //getCurrencyList()
+            getCurrencyList()
         }
         cancelButton.addTarget(self, action: #selector(cancelClicked), for: .touchUpInside)
     }
@@ -76,8 +79,10 @@ class SelectCurrencyViewController: UIViewController {
                     self.showAlert(message: data.error?.info)
                     return
                 }
-                DataManager.shared.symbolsList = data.symbols
-                self.filteredSymbols = DataManager.shared.symbolsList?.symbolsAndValueDictionary
+                self.filteredSymbols = data.symbols?.symbolsAndValueDictionary
+                self.dataManager.symbolsListData = data.symbols
+                RealmManager.shared.saveObject(self.dataManager)
+                
             case .failure(let error):
                 self.showAlert(message: error.localizedDescription)
             }
@@ -129,7 +134,7 @@ extension SelectCurrencyViewController: UITableViewDelegate, UITableViewDataSour
 
 extension SelectCurrencyViewController: UISearchBarDelegate {
     func searchSymbols(for searchText: String) {
-        let symbolList = DataManager.shared.symbolsList?.symbolsAndValueDictionary
+        let symbolList = RealmManager.shared.retrieveObject(DataManager.self)?.symbolsListData?.symbolsAndValueDictionary
         if searchText.isEmpty {
             filteredSymbols = symbolList
         } else {

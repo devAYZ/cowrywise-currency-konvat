@@ -52,6 +52,8 @@ class CalculatorViewController: UIViewController {
         midMarketExRateInfoButton.addTarget(self, action: #selector(midMarketExRateInfoButtonClicked), for: .touchUpInside)
         getEmailAlertForRatesButton.addTarget(self, action: #selector(getEmailAlertForRatesClicked), for: .touchUpInside)
         convertCurrencyButton.addTarget(self, action: #selector(handleConvertCurrency), for: .touchUpInside)
+        
+        fromCurrencyTextField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)
     }
     
     @objc func sideMenuClicked() {
@@ -84,6 +86,13 @@ class CalculatorViewController: UIViewController {
         vc.currencyFlow = currencyFlow
         vc.delegate = self
         present(vc, animated: true)
+    }
+    
+    @objc func textFieldEditingDidEnd(_ sender: UITextField) {
+        guard let amountToConvert = sender.text, !amountToConvert.isEmpty else {
+            return
+        }
+        print(amountToConvert, sender.tag)
     }
     
     @objc func handleConvertCurrency() {

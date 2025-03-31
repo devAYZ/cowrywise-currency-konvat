@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A46C92A2D99E17C006B282A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A46C9292D99E17C006B282A /* RealmSwift */; };
 		3AAD78622D94708E00509112 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78612D94708E00509112 /* Alamofire */; };
 		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
 		3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3ACAAB952D95595A005DB7F1 /* SideMenu */; };
@@ -75,6 +76,7 @@
 			files = (
 				3AAD78622D94708E00509112 /* Alamofire in Frameworks */,
 				3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */,
+				3A46C92A2D99E17C006B282A /* RealmSwift in Frameworks */,
 				3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +142,7 @@
 				3AAD78612D94708E00509112 /* Alamofire */,
 				3AAD78672D94714100509112 /* IQKeyboardManagerSwift */,
 				3ACAAB952D95595A005DB7F1 /* SideMenu */,
+				3A46C9292D99E17C006B282A /* RealmSwift */,
 			);
 			productName = "cowrywise-currency-konvat";
 			productReference = 3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */;
@@ -227,6 +230,7 @@
 				3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				3AAD78662D94714100509112 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				3ACAAB942D95595A005DB7F1 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				3A46C9262D99E17C006B282A /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3AAD77392D94687200509112 /* Products */;
@@ -600,6 +604,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3A46C9262D99E17C006B282A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -627,6 +639,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3A46C9292D99E17C006B282A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A46C9262D99E17C006B282A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		3AAD78612D94708E00509112 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3AAD78602D94708E00509112 /* XCRemoteSwiftPackageReference "Alamofire" */;
