@@ -17,6 +17,7 @@ class CurrencyChartView: UIView {
         chart.noDataText = "No data available"
         chart.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
         chart.xAxis.labelTextColor = .white
+        chart.xAxis.labelPosition = .bottom
         chart.leftAxis.labelTextColor = .white
         chart.rightAxis.labelTextColor = .white
         chart.isMultipleTouchEnabled = false
@@ -39,7 +40,7 @@ class CurrencyChartView: UIView {
 
     private let rateLabel: UILabel = {
         let label = UILabel()
-        label.text = "1 EUR = 1,400"
+        label.text = "1 EUR = 1,300"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.8)
@@ -89,7 +90,7 @@ class CurrencyChartView: UIView {
             chartView.heightAnchor.constraint(equalToConstant: 350),
             
             rateLabel.centerXAnchor.constraint(equalTo: chartView.centerXAnchor),
-            rateLabel.centerYAnchor.constraint(equalTo: chartView.centerYAnchor, constant: -30),
+            rateLabel.centerYAnchor.constraint(equalTo: chartView.centerYAnchor, constant: -100),
             rateLabel.widthAnchor.constraint(equalToConstant: 150),
             rateLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
@@ -97,8 +98,8 @@ class CurrencyChartView: UIView {
 
     // MARK: Chart Data
     private func setupChartData(
-        dates: [String] = ["01 Jun", "07 Jun", "15 Jun", "23 Jun", "30 Jun"],
-        values: [Double] = [4000.0, 4200.0, 4242.0, 4100.0, 4300.0]
+        dates: [Int] = [01, 07, 15, 23, 30],
+        values: [Double] = [1200, 1300, 1250, 1350, 1300]
     ) {
         var entries: [ChartDataEntry] = []
         for i in 0..<dates.count {
@@ -123,11 +124,11 @@ class CurrencyChartView: UIView {
     @objc func setSegmentData(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case .zero:
-            rateLabel.text = "1 EUR = 1,400"
+            rateLabel.text = "1 EUR = 1,300"
             setupChartData()
         case 1:
+            setupChartData(dates: [1, 7, 15, 23], values: [1150, 1000, 1200, 1200])
             rateLabel.text = "1 USD = 1,200"
-            setupChartData(dates: ["01 Jul", "07 Jul", "15 Jul"], values: [2000.0, 2200.0, 2100.0])
         default:
             break
         }
