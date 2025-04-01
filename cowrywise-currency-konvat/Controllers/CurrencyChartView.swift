@@ -21,10 +21,11 @@ class CurrencyChartView: UIView {
         chart.rightAxis.labelTextColor = .white
         chart.isMultipleTouchEnabled = false
         chart.isUserInteractionEnabled = false
+        chart.accessibilityIdentifier = "chartView"
         return chart
     }()
 
-    private let timeSegmentControl: UISegmentedControl = {
+    let timeSegmentControl: UISegmentedControl = {
         let control = UISegmentedControl(items: ["Past 30 days", "Past 90 days"])
         control.selectedSegmentIndex = 0
         control.translatesAutoresizingMaskIntoConstraints = false
@@ -32,12 +33,13 @@ class CurrencyChartView: UIView {
         // Set text color for normal and selected states
         control.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         control.setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .selected)
+        control.accessibilityIdentifier = "timeSegmentControl"
         return control
     }()
 
     private let rateLabel: UILabel = {
         let label = UILabel()
-        label.text = "1 EUR = 4,242"
+        label.text = "1 EUR = 1,400"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.8)
@@ -45,6 +47,7 @@ class CurrencyChartView: UIView {
         label.layer.masksToBounds = true
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.accessibilityIdentifier = "rateLabel"
         return label
     }()
     

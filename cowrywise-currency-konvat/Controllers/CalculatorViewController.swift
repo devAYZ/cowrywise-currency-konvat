@@ -182,7 +182,7 @@ class CalculatorViewController: UIViewController {
             return
         }
         
-        vmCalculatorView.covertCurrency(from: currencyFrom.code, to: currencyTo.code, amount: amountToConvert)
+        vmCalculatorView.convertCurrency(from: currencyFrom.code, to: currencyTo.code, amount: amountToConvert)
     }
 }
 

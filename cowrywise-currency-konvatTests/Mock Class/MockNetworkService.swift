@@ -26,9 +26,9 @@ struct MockNetworkService: NetworkCallProtocol {
         
         switch apiFlow {
         case .successFetchSymbolsList:
-            completion?(mockSuccessFetchSymbolsListResponse())
+            completion?(fetchSupportedCurrencyMockSuccesResponse())
         case .failFetchSymbolsList:
-            completion?(mockFailFetchSymbolsListResponse())
+            completion?(fetchSupportedCurrencyMockFailResponse())
         case .convertAmount:
             break
         default:
@@ -36,8 +36,8 @@ struct MockNetworkService: NetworkCallProtocol {
         }
     }
     
-    // Mock Success Response
-    func mockSuccessFetchSymbolsListResponse<T>() -> AFDataResponse<T> {
+    // MARK: Fetch Currenct Symbols MOCK API Response
+    func fetchSupportedCurrencyMockSuccesResponse<T>() -> AFDataResponse<T> {
         return DataResponse(
             request: nil, response: nil, data: nil, metrics: nil, serializationDuration: 1,
             result: .success(
@@ -56,12 +56,44 @@ struct MockNetworkService: NetworkCallProtocol {
         )
     }
     
-    func mockFailFetchSymbolsListResponse<T>() -> AFDataResponse<T> {
+    func fetchSupportedCurrencyMockFailResponse<T>() -> AFDataResponse<T> {
         return DataResponse(
             request: nil, response: nil, data: nil, metrics: nil, serializationDuration: 1,
             result: .failure(
                 AFError.responseValidationFailed(reason: .customValidationFailed(
-                    error: NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Unit Test Error response"])
+                    error: NSError(domain: "", code: 400,
+                                   userInfo: [NSLocalizedDescriptionKey: "Fetch-curency Unit-test Error-response"])
+                ))
+            )
+        )
+    }
+    
+    // MARK: Convert Currenct MOCK API Response
+    func convertCurrencyMockSuccesResponse<T>() -> AFDataResponse<T> {
+        return DataResponse(
+            request: nil, response: nil, data: nil, metrics: nil, serializationDuration: 1,
+            result: .success(
+                ConvertAmountResponse(
+                    info: Info(timestamp: 1, rate: 1.2),
+                    date: "mock-Date",
+                    success: true,
+                    query: Query(to: "mock-to", amount: 2, from: "mock-from"),
+                    historical: "mock-historical",
+                    result: 3.3,
+                    error: nil
+                ) as! T
+            )
+        )
+    }
+    
+    func convertCurrencyMockFailResponse<T>() -> AFDataResponse<T> {
+        return DataResponse(
+            request: nil, response: nil, data: nil, metrics: nil, serializationDuration: 1,
+            result: .failure(
+                AFError.responseValidationFailed(reason: .customValidationFailed(
+                    error: NSError(domain: "", code: 400,
+                                   userInfo: [NSLocalizedDescriptionKey: "Cnovert-currency Unit-test Error-response"]
+                                  )
                 ))
             )
         )

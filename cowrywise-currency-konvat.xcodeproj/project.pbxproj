@@ -25,11 +25,19 @@
 			remoteGlobalIDString = 3AAD77372D94687200509112;
 			remoteInfo = "cowrywise-currency-konvat";
 		};
+		3AAE5B002D9C2FA500379493 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AAD77302D94687200509112 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AAD77372D94687200509112;
+			remoteInfo = "cowrywise-currency-konvat";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cowrywise-currency-konvat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAE5AB02D9C207D00379493 /* cowrywise-currency-konvatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cowrywise-currency-konvatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AAE5AFA2D9C2FA500379493 /* cowrywise-currency-konvatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cowrywise-currency-konvatUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACAAB9A2D9564C1005DB7F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +65,11 @@
 			path = "cowrywise-currency-konvatTests";
 			sourceTree = "<group>";
 		};
+		3AAE5AFB2D9C2FA500379493 /* cowrywise-currency-konvatUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "cowrywise-currency-konvatUITests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +94,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AAE5AF72D9C2FA500379493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +110,7 @@
 				3ACAAB9A2D9564C1005DB7F1 /* README.md */,
 				3AAD773A2D94687200509112 /* cowrywise-currency-konvat */,
 				3AAE5AB12D9C207D00379493 /* cowrywise-currency-konvatTests */,
+				3AAE5AFB2D9C2FA500379493 /* cowrywise-currency-konvatUITests */,
 				3AAD77392D94687200509112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +120,7 @@
 			children = (
 				3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */,
 				3AAE5AB02D9C207D00379493 /* cowrywise-currency-konvatTests.xctest */,
+				3AAE5AFA2D9C2FA500379493 /* cowrywise-currency-konvatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +180,29 @@
 			productReference = 3AAE5AB02D9C207D00379493 /* cowrywise-currency-konvatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3AAE5AF92D9C2FA500379493 /* cowrywise-currency-konvatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AAE5B022D9C2FA500379493 /* Build configuration list for PBXNativeTarget "cowrywise-currency-konvatUITests" */;
+			buildPhases = (
+				3AAE5AF62D9C2FA500379493 /* Sources */,
+				3AAE5AF72D9C2FA500379493 /* Frameworks */,
+				3AAE5AF82D9C2FA500379493 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AAE5B012D9C2FA500379493 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3AAE5AFB2D9C2FA500379493 /* cowrywise-currency-konvatUITests */,
+			);
+			name = "cowrywise-currency-konvatUITests";
+			packageProductDependencies = (
+			);
+			productName = "cowrywise-currency-konvatUITests";
+			productReference = 3AAE5AFA2D9C2FA500379493 /* cowrywise-currency-konvatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +217,10 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					3AAE5AAF2D9C207D00379493 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 3AAD77372D94687200509112;
+					};
+					3AAE5AF92D9C2FA500379493 = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 3AAD77372D94687200509112;
 					};
@@ -202,6 +251,7 @@
 			targets = (
 				3AAD77372D94687200509112 /* cowrywise-currency-konvat */,
 				3AAE5AAF2D9C207D00379493 /* cowrywise-currency-konvatTests */,
+				3AAE5AF92D9C2FA500379493 /* cowrywise-currency-konvatUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,6 +266,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3AAE5AAE2D9C207D00379493 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AAE5AF82D9C2FA500379493 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,6 +296,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AAE5AF62D9C2FA500379493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -246,6 +310,11 @@
 			isa = PBXTargetDependency;
 			target = 3AAD77372D94687200509112 /* cowrywise-currency-konvat */;
 			targetProxy = 3AAE5AB42D9C207D00379493 /* PBXContainerItemProxy */;
+		};
+		3AAE5B012D9C2FA500379493 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AAD77372D94687200509112 /* cowrywise-currency-konvat */;
+			targetProxy = 3AAE5B002D9C2FA500379493 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -469,6 +538,42 @@
 			};
 			name = Release;
 		};
+		3AAE5B032D9C2FA500379493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LWU8V4B258;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cowrywise-currency-konvatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "cowrywise-currency-konvat";
+			};
+			name = Debug;
+		};
+		3AAE5B042D9C2FA500379493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LWU8V4B258;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cowrywise-currency-konvatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "cowrywise-currency-konvat";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -495,6 +600,15 @@
 			buildConfigurations = (
 				3AAE5AB72D9C207D00379493 /* Debug */,
 				3AAE5AB82D9C207D00379493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AAE5B022D9C2FA500379493 /* Build configuration list for PBXNativeTarget "cowrywise-currency-konvatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AAE5B032D9C2FA500379493 /* Debug */,
+				3AAE5B042D9C2FA500379493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -53,7 +53,7 @@ final class CalculatorViewModelTests: XCTestCase {
         sut.getCurrencyList()
         
         XCTAssertNotNil(mockViewDelegate.receivedError)
-        XCTAssert(mockViewDelegate.receivedError?.contains("Unit Test Error response") ?? false)
+        XCTAssert(mockViewDelegate.receivedError?.contains("Fetch-curency Unit-test Error-response") ?? false)
         exp.fulfill()
         
         waitForExpectations(timeout: 0.1)

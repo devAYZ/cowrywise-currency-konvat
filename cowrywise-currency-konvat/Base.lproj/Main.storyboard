@@ -517,7 +517,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="97m-nD-iYi">
+                            <searchBar contentMode="redraw" placeholder="Currency Code or Country Name" translatesAutoresizingMaskIntoConstraints="NO" id="97m-nD-iYi">
                                 <rect key="frame" x="16" y="148" width="361" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>

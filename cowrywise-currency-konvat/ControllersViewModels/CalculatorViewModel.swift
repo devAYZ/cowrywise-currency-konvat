@@ -62,9 +62,9 @@ class CalculatorViewModel  {
         )
     }
     
-    func covertCurrency(from: String, to: String, amount: String) {
+    func convertCurrency(from: String, to: String, amount: String) {
         self.view?.handleLoader(show: true)
-        networkClass?.makeNetworkCall(with:  covertCurrencyRequestModel(from: from, to: to, amount: amount)) { response in
+        networkClass?.makeNetworkCall(with:  convertCurrencyRequestModel(from: from, to: to, amount: amount)) { response in
             self.view?.handleLoader(show: false)
             switch response.result {
             case .success(let data):
@@ -80,7 +80,7 @@ class CalculatorViewModel  {
         }
     }
     
-    private func covertCurrencyRequestModel(from: String, to: String, amount: String) -> NetworkCallModel<ConvertAmountResponse> {
+    private func convertCurrencyRequestModel(from: String, to: String, amount: String) -> NetworkCallModel<ConvertAmountResponse> {
         return NetworkCallModel(
             endpoint: Endpoint.convert.rawValue,
             responseType: ConvertAmountResponse.self,
