@@ -39,7 +39,8 @@ class CalculatorViewController: UIViewController {
     private var convertCurrencyTo: SingleCurrency?
     private var amountToConvert: String?
     private var exchangeRateButtonTitle = "Mid-market exchange rate at {t} "
-    private var rateLabelTitle = "Rate -> {r}"
+    private var rateLabelTitle = "Rate 1 {from} = {r} {to}"
+    private var trackLasttConversion: (from: String, to: String, amount: String)?
     
     var filteredSymbols: [String: String]?
 
@@ -132,6 +133,7 @@ class CalculatorViewController: UIViewController {
         }
         
         textField.text = text
+        amountToConvert = text
     }
     
     @objc func textFieldEditingDidEnd(_ sender: UITextField) {
@@ -139,7 +141,6 @@ class CalculatorViewController: UIViewController {
             return
         }
         self.amountToConvert = amountToConvert
-        print(amountToConvert)
     }
     
     func setupMidMarketExRateInfoButton() {
@@ -182,6 +183,14 @@ class CalculatorViewController: UIViewController {
             return
         }
         
+        guard trackLasttConversion?.from != currencyFrom.code ||
+                trackLasttConversion?.to != currencyTo.code ||
+                trackLasttConversion?.amount != amountToConvert else {
+            showAlert(message: "This is same as previous conversion")
+            return
+        }
+        
+        trackLasttConversion = (currencyFrom.code, currencyTo.code, amountToConvert)
         vmCalculatorView.convertCurrency(from: currencyFrom.code, to: currencyTo.code, amount: amountToConvert)
     }
 }
@@ -226,11 +235,10 @@ extension CalculatorViewController: CalculatorViewDelegate {
     
     func handleSuccess(coversion: ConvertAmountResponse) {
         rateLabel.isHidden = false
-        
-        rateLabel.text = rateLabelTitle.replacingOccurrences(
-            of: "{r}",
-            with: String(format: "%.2f", coversion.info?.rate ?? 0)
-        )
+        rateLabel.text = rateLabelTitle
+            .replacingOccurrences(of: "{from}", with: convertCurrencyFrom?.code ?? "")
+            .replacingOccurrences(of: "{r}", with: String(format: "%.2f", coversion.info?.rate ?? 0))
+            .replacingOccurrences(of: "{to}", with: convertCurrencyTo?.code ?? "")
         toCurrencyTextField.text = String(format: "%.2f", coversion.result ?? 0)
     }
 }
