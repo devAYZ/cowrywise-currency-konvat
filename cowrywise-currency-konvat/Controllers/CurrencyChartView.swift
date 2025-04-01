@@ -19,6 +19,8 @@ class CurrencyChartView: UIView {
         chart.xAxis.labelTextColor = .white
         chart.leftAxis.labelTextColor = .white
         chart.rightAxis.labelTextColor = .white
+        chart.isMultipleTouchEnabled = false
+        chart.isUserInteractionEnabled = false
         return chart
     }()
 
@@ -65,9 +67,9 @@ class CurrencyChartView: UIView {
 
     // MARK: - UI Setup
     private func setupUI() {
-        self.addSubview(timeSegmentControl)
-        self.addSubview(chartView)
-        self.addSubview(rateLabel)
+        addSubview(timeSegmentControl)
+        addSubview(chartView)
+        addSubview(rateLabel)
         
         timeSegmentControl.addTarget(self, action: #selector(setSegmentData(_:)), for: .primaryActionTriggered)
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CalculatorViewModelProtocol {
+protocol CalculatorViewDelegate {
     func handleLoader(show: Bool)
     func handleError(message: String?)
     func handleSuccess(sysmbols: [String: String]?)
@@ -19,25 +19,34 @@ class CalculatorViewModel  {
     // MARK: Properties
     static let shared = CalculatorViewModel()
     let dataManager = DataManager()
+    var view: CalculatorViewDelegate?
+    var networkClass: NetworkCallProtocol?
     
-    var delegate: CalculatorViewModelProtocol?
+    // MARK: Initialiser
+    init(networkClass: NetworkCallProtocol = NetworkCallService()) {
+        self.networkClass = networkClass
+    }
+    
+    func attachView(view: CalculatorViewDelegate) {
+        self.view = view
+    }
     
     func getCurrencyList() {
-        self.delegate?.handleLoader(show: true)
-        NetworkCallService.shared.makeNetworkCall(with: getCurrencyRequestModel()) { response in
-            self.delegate?.handleLoader(show: false)
+        self.view?.handleLoader(show: true)
+        networkClass?.makeNetworkCall(with: getCurrencyRequestModel()) { response in
+            self.view?.handleLoader(show: false)
             switch response.result {
             case .success(let data):
                 guard data.success ?? false else {
-                    self.delegate?.handleError(message: data.error?.info)
+                    self.view?.handleError(message: data.error?.info)
                     return
                 }
                 self.dataManager.symbolsListData = data.symbols
                 RealmManager.shared.saveObject(self.dataManager)
-                self.delegate?.handleSuccess(sysmbols: data.symbols?.symbolsAndValueDictionary)
+                self.view?.handleSuccess(sysmbols: data.symbols?.symbolsAndValueDictionary)
                 
             case .failure(let error):
-                self.delegate?.handleError(message: error.localizedDescription)
+                self.view?.handleError(message: error.localizedDescription)
             }
         }
     }
@@ -54,19 +63,19 @@ class CalculatorViewModel  {
     }
     
     func covertCurrency(from: String, to: String, amount: String) {
-        self.delegate?.handleLoader(show: true)
-        NetworkCallService.shared.makeNetworkCall(with:  covertCurrencyRequestModel(from: from, to: to, amount: amount)) { response in
-            self.delegate?.handleLoader(show: false)
+        self.view?.handleLoader(show: true)
+        networkClass?.makeNetworkCall(with:  covertCurrencyRequestModel(from: from, to: to, amount: amount)) { response in
+            self.view?.handleLoader(show: false)
             switch response.result {
             case .success(let data):
                 guard data.success ?? false else {
-                    self.delegate?.handleError(message: data.error?.info)
+                    self.view?.handleError(message: data.error?.info)
                     return
                 }
-                self.delegate?.handleSuccess(coversion: data)
+                self.view?.handleSuccess(coversion: data)
                 
             case .failure(let error):
-                self.delegate?.handleError(message: error.localizedDescription)
+                self.view?.handleError(message: error.localizedDescription)
             }
         }
     }

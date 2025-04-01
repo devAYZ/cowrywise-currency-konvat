@@ -40,9 +40,6 @@ protocol NetworkCallProtocol {
 // MARK: AFNetworkClass
 final class NetworkCallService: NetworkCallProtocol {
     
-    static let shared: NetworkCallProtocol = NetworkCallService()
-    private init() { }
-    
     /// Implement network call using Alamofire
     /// - Parameters:
     ///   - requestModel: requestModel

@@ -46,7 +46,7 @@ class CalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        vmCalculatorView.delegate = self
+        vmCalculatorView.attachView(view: self)
         
         if let cached = RealmManager.shared.retrieveObject(DataManager.self)?.symbolsListData {
             filteredSymbols = cached.symbolsAndValueDictionary
@@ -205,7 +205,7 @@ extension CalculatorViewController: SelectCurrencyDelegate {
     }
 }
 
-extension CalculatorViewController: CalculatorViewModelProtocol {
+extension CalculatorViewController: CalculatorViewDelegate {
     func handleError(message: String?) {
         rateLabel.isHidden = true
         showAlert(message: message)
