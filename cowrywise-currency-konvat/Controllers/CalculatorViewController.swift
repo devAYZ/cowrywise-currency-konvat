@@ -239,6 +239,7 @@ extension CalculatorViewController: CalculatorViewDelegate {
             .replacingOccurrences(of: "{from}", with: convertCurrencyFrom?.code ?? "")
             .replacingOccurrences(of: "{r}", with: String(format: "%.2f", coversion.info?.rate ?? 0))
             .replacingOccurrences(of: "{to}", with: convertCurrencyTo?.code ?? "")
-        toCurrencyTextField.text = String(format: "%.2f", coversion.result ?? 0)
+            .formattedAsCurrency()
+        toCurrencyTextField.text = String(format: "%.2f", coversion.result ?? 0).formattedAsCurrency()
     }
 }
