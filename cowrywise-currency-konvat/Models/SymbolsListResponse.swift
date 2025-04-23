@@ -31,7 +31,7 @@ struct SymbolsList: Codable {
     }
 }
 
-struct SingleCurrency {
+struct SingleCurrency: Equatable {
     var code: String
     var name: String
 }

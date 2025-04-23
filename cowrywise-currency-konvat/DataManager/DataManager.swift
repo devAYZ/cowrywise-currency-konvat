@@ -9,15 +9,10 @@ import Foundation
 import RealmSwift
 import SwiftyJSON
 
-class DataManager: Object {
+class DataManager: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id = "symbolsListStringData"
+    @Persisted var symbolsListStringData: String = ""
     
-    override static func primaryKey() -> String? {
-        return "symbolsListStringData"
-    }
-    //@Persisted(primaryKey: true) var _id: String = UUID().uuidString
-
-    
-    @objc dynamic var symbolsListStringData: String = "" // Store as JSON string
     var symbolsListData: SymbolsList? {
         get {
             guard let data = symbolsListStringData.data(using: .utf8) else { return nil }

@@ -20,6 +20,7 @@ class RealmManager: CacheManagerProtocol {
     
     init() {
         realmDB = try! Realm()
+        //Realm.Configuration.defaultConfiguration.fileURL
     }
     
     func saveObject<T: Object>(_ object: T?) {

@@ -143,7 +143,7 @@ class CalculatorViewController: UIViewController {
         self.amountToConvert = amountToConvert
     }
     
-    func setupMidMarketExRateInfoButton() {
+    func setupMidMarketExRateInfoButton() { ///setupMidMarketExRateInfoButton
         midMarketExRateInfoButton.addTarget(self, action: #selector(midMarketExRateInfoButtonClicked), for: .touchUpInside)
         
         let dateFormatter = DateFormatter()
@@ -201,10 +201,19 @@ extension CalculatorViewController: SelectCurrencyDelegate {
         let checkCurrencyLogo  = URL(string: "https://flagsapi.com/\(currencyLogo)/flat/64.png")
         switch currencyFlow {
         case .from:
+            guard (currency != convertCurrencyTo) else {
+                showAlert(message: "You cannot choose same currency, Kindly enter a differnt currency")
+                return
+            }
             fromCurrencySymbolImageView.kf.setImage(with: checkCurrencyLogo)
             convertCurrencyFrom = currency
             fromCurrencySymbolLabels.forEach { $0.text = currency.code }
         case .to:
+            guard (currency != convertCurrencyFrom) else {
+                showAlert(message: "You cannot choose same currency, Kindly enter a differnt currency")
+                return
+            }
+            
             toCurrencySymbolImageView.kf.setImage(with: checkCurrencyLogo)
             convertCurrencyTo = currency
             toCurrencySymbolLabels.forEach { $0.text = currency.code }
@@ -237,9 +246,22 @@ extension CalculatorViewController: CalculatorViewDelegate {
         rateLabel.isHidden = false
         rateLabel.text = rateLabelTitle
             .replacingOccurrences(of: "{from}", with: convertCurrencyFrom?.code ?? "")
-            .replacingOccurrences(of: "{r}", with: String(format: "%.2f", coversion.info?.rate ?? 0))
+            .replacingOccurrences(of: "{r}", with: String(format: "%.2f", coversion.info?.rate ?? 0).formattedAsCurrency())
             .replacingOccurrences(of: "{to}", with: convertCurrencyTo?.code ?? "")
-            .formattedAsCurrency()
         toCurrencyTextField.text = String(format: "%.2f", coversion.result ?? 0).formattedAsCurrency()
+        
+        if let timestamp = coversion.info?.timestamp {
+            let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .short
+            dateFormatter.dateStyle = .medium // You can use .short, .medium, .long, or .full
+            let formattedDate = dateFormatter.string(from: date)
+            
+            midMarketExRateInfoButton.setTitle(
+                exchangeRateButtonTitle.replacingOccurrences(of: "{t}", with: formattedDate),
+                for: .normal
+            )
+        }
+
     }
 }

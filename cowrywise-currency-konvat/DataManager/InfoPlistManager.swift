@@ -19,4 +19,7 @@ enum PlistManager {
 enum PlistKey: String {
     case baseUrl = "BaseUrl"
     case apiKey = "ApiKey"
+    case appName = "CFBundleName"
+    case appVersion = "CFBundleShortVersionString"
+    case buildNumber = "CFBundleVersion"
 }

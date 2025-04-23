@@ -13,6 +13,7 @@
 		3A4EE7EF2D9B05BE003E5674 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3A4EE7EE2D9B05BE003E5674 /* DGCharts */; };
 		3AAD78622D94708E00509112 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78612D94708E00509112 /* Alamofire */; };
 		3AAD78682D94714100509112 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AAD78672D94714100509112 /* IQKeyboardManagerSwift */; };
+		3AAE5CB52DA5B47000379493 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 3A46C9292D99E17C006B282A /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3ACAAB962D95595A005DB7F1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3ACAAB952D95595A005DB7F1 /* SideMenu */; };
 		3ACAAB9B2D9564C1005DB7F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3ACAAB9A2D9564C1005DB7F1 /* README.md */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,20 @@
 			remoteInfo = "cowrywise-currency-konvat";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AAE5CB62DA5B47000379493 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3AAE5CB52DA5B47000379493 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3AAD77382D94687200509112 /* cowrywise-currency-konvat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cowrywise-currency-konvat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +150,7 @@
 				3AAD77342D94687200509112 /* Sources */,
 				3AAD77352D94687200509112 /* Frameworks */,
 				3AAD77362D94687200509112 /* Resources */,
+				3AAE5CB62DA5B47000379493 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

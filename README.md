@@ -46,9 +46,6 @@ The application relies on several third-party libraries to enhance its functiona
    - Views are built using **Storyboard**.
    - The CharView is built programmatically.
 
-## Alamofire, Networking Session 
-- Handles all network interactions efficiently.
-
 ## System Assets
 - Text
 - Images
